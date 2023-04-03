@@ -1,0 +1,3 @@
+/home/training/dd-19-32-26/Assignment/build/CMakeFiles/rebuild_cache.dir
+/home/training/dd-19-32-26/Assignment/build/CMakeFiles/edit_cache.dir
+/home/training/dd-19-32-26/Assignment/build/CMakeFiles/PMC.dir

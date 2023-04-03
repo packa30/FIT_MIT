@@ -1,0 +1,59 @@
+Architektury Výpočetních Systémů (AVS 2019)
+Projekt č. 2 (PMC)
+Login: xlogin00
+
+Úloha 1: Paralelizace původního řešení
+===============================================================================
+
+1) Kterou ze smyček (viz zadání) je vhodnější paralelizovat a co způsobuje 
+   neefektivitu paralelizaci té druhé?
+
+Vhodnejšie je paralelizovať smyčku vo funkcii marchCubes. Neefektivitu druhej spôsobuje prístup do zdielanej premennej value, na ktorej hodnote závisí každé paralelné vlákno.
+
+2) Jaké plánování (rozdělení práce mezi vlákna) jste zvolili a proč? 
+   Jaký vliv má velikost "chunk" při dynamickém plánování (8, 16, 32, 64)?
+
+Dynamic - omp_get_max_threads(). - najvyváženejšia varianta - optimálne v každom okamihu ukončí/začína nejaké vlákno prácu na chunk size
+
+Čím väčší chunk size pri dinamickom plánovaní, tým menšia réžia pri synchronizácii(vačší počet iterácii naraz pridelených jednému vláknu), avšak horšie vyváženie záťaže, pretože vlákno vyčkáva na bariere na dokončenie chunk size iiterácii iného vlákna dlhšiu dobu.
+
+
+3) Jakým způsobem zajišťujete ukládání trojúhelníků z několika vláken současně?
+
+Každé vlákno má vlastný priestor (array vektorov inicializovaný na veľkosť omp_get_max_threads). na konci výpočtu sú výsledky jednotlivých vlakien appendnute do jedného finálneho vektoru
+
+Úloha 2: Paralelní průchod stromem
+===============================================================================
+
+1) Stručně popište použití OpenMP tasků ve vašem řešení.
+
+Pred prvým volaním rekurzívnej funkcie je zapnutá paralelizácia so single volaním. Pred každým rekurzivnym volaním dôjde k vytvoreniu tasku až do veľkosti kedy by nový gridsize bol 2 a menší. Na tak nízkej úrovní stromu už tasky neboli efektívne.
+
+2) Jakým způsobem jste realizovali sesbírání celkového počtu trojúhelníků?
+
+Pre korektné zozbieranei celkového počtu trojuholníkov je potrebná direktíva taskwait pred returnom rekurzívnej funkcie. Vďaka nej tak dôjde k vypočítaniu najnižšej úrovne (všetkých rekurzívnych callov) a až po jej následnom returne čakajúci task z úrovne predchádzajúcej pokračuje returnom.
+
+3) Jaký vliv má na vaše řešení tzv. "cut-off"? Je vhodné vytvářet nový 
+   task pro každou krychli na nejnižší úrovni?
+
+Na najnižšej úrovni už vytváranie tasku vhodné nie je. Na tejto úrovni už môže vlákno ktoré by vytváralo task priamo vykresliť danú kocku namiesto vytvorenia tasku, ktorý by prebralo ďakšie voľné vlákno. Tým by sa zvyšovala réžia medzi v medzivláknovej synchronizácii za cenu nulového urýchlenia výpočtu. 
+
+4) Jakým způsobem zajišťujete ukládání trojúhelníků z několika vláken současně?
+
+Rovnako ako v úlohe č.1.
+Každé vlákno má vlastný priestor (array vektorov inicializovaný na veľkosť omp_get_max_threads). na konci výpočtu sú výsledky jednotlivých vlakien appendnute do jedného finálneho vektoru
+
+Úloha 2: Grafy škálování obou řešení
+===============================================================================
+
+1) Stručně zhodnoťte efektivitu vytvořených řešení (na základě grafů škálování).
+
+
+
+2) V jakém případě (v závislosti na počtu bodů ve vstupním souboru a velikosti 
+   mřížky) bude vaše řešení 1. úlohy neefektivní? (pokud takový případ existuje)
+
+
+
+3) Je (nebo není) stromový algoritmus efektivnější z pohledu slabého škálování 
+   vzhledem ke vstupu?
