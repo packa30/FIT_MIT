@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/KRY.dir/main.cpp.o CMakeFiles/KRY.dir/kasisk.cpp.o CMakeFiles/KRY.dir/friedman.cpp.o -o KRY 

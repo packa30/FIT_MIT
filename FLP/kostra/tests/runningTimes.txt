@@ -1,0 +1,28 @@
+******** without optimizations ********
+Test 0 running time ~ .024677759 [s]
+Test 1 running time ~ .017407869 [s]
+Test 2 running time ~ .033484004 [s]
+Test 3 running time ~ 7.813701795 [s]
+Test 4 running time ~ 75.822498743 [s]  **only with stack increase before optimalization1
+Test 5 running time ~ 79.438162071 [s]  **only with stack increase before optimalization1
+Test 6 running time ~ 189.174098963 [s] **only with stack increase before optimalization1
+***************************************
+********* with optimization 1 *********
+Test 0 running time ~ .035016621 [s]
+Test 1 running time ~ .017902788 [s]
+Test 2 running time ~ .033532097 [s]
+Test 3 running time ~ 1.331739405 [s]
+Test 4 running time ~ 15.927200352 [s]
+Test 5 running time ~ 18.412319689 [s]	**only with stack increase before optimalization2
+Test 6 running time ~ 150.195876934 [s]	**only with stack increase before optimalization2
+***************************************
+********* with optimization 2 ********* *** FINAL ONE ***
+Test 0 running time ~ .043757132 [s]
+Test 1 running time ~ .015808431 [s]
+Test 2 running time ~ .022098143 [s]
+Test 3 running time ~ .260751549 [s]
+Test 4 running time ~ .112678884 [s]
+Test 5 running time ~ .016021103 [s]
+Test 6 running time ~ 12.617159367 [s]
+Test 7 running time ~ 34.017656310 [s] ** not possible before optimizations (consumed too much memory)
+***************************************

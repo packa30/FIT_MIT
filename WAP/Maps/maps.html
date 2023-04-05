@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple map</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  <link rel="stylesheet" type="text/css" href="./style.css" />
+  <script src="mapPoints.js"></script>
+</head>
+<body>
+  <div id="map"></div>
+  <div id="bottomnav" class="bottomnav">
+    <input id= "findInput" type="text" placeholder="Search..">
+<!--    <button id="searchPos" type="submit">Search</button>-->
+    <button id="addPos" type="submit">Add</button>
+  </div>
+
+  <script
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIdU8PeDM4cY6eqadk82GEflx2BvI9QtQ&callback=initMap&libraries=places&v=weekly"
+          async
+  ></script>
+
+  <div id="Gallery"></div>
+
+
+</body>
+</html>
+

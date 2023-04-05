@@ -1,0 +1,14 @@
+A-C C-F F-G G-J J-B B-H 
+A-C C-G G-J J-B B-H C-F 
+A-C C-G G-J J-B B-H G-F 
+A-B B-H A-C C-F F-G G-J 
+A-B B-H A-C C-G G-J C-F 
+A-B B-H A-C C-G G-J G-F 
+A-B B-J B-H A-C C-F F-G 
+A-B B-J B-H A-C C-G C-F 
+A-B B-J B-H A-C C-G G-F 
+A-B B-J J-G B-H A-C C-F 
+A-B B-J J-G G-C C-F B-H 
+A-B B-J J-G G-F B-H A-C 
+A-B B-J J-G G-F G-C B-H 
+A-B B-J J-G G-F F-C B-H 

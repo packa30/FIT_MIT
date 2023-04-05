@@ -1,0 +1,12 @@
+A,B,S,C,D
+a,b,c,d
+S
+A->AB
+B->b
+S->A
+S->a
+S->b
+S->c
+S->d
+S->AC
+S->DB
